@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=68", "setuptools-scm[toml]"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "commitlint-local"
+version = "0.1.0"
+description = "Repo-local Conventional Commits linter and pre-commit hook"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Hermes" }]
+dependencies = []
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["commitlint_local*"]
+namespaces = false
