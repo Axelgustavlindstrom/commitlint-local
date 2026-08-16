@@ -5,6 +5,8 @@ A lightweight, repo-local commit message linter for Git. Enforce Conventional Co
 ## About / description
 `commitlint-local` inspects staged commit messages from a local repo and applies Conventional Commits heuristics. It ships as a Python CLI and a pre-commit hook. Unlike broad tooling, it targets one repository, reads a local `.commitlintrc`, and prints actionable fixes.
 
+Repository: https://github.com/Axelgustavlindstrom/commitlint-local
+
 ## Features
 - Enforce Conventional Commits: `<type>[optional scope]: <description>`
 - Configured via `.commitlintrc` in the repo root
@@ -34,6 +36,7 @@ commitlint-local/
 ├── .gitignore
 ├── LICENSE
 ├── commitlint_local/
+│   ├── __init__.py
 │   └── cli.py
 └── tests/
     └── test_cli.py
