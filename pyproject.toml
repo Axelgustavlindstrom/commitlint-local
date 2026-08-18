@@ -9,8 +9,11 @@ description = "Repo-local Conventional Commits linter and pre-commit hook"
 readme = "README.md"
 requires-python = ">=3.10"
 license = { text = "MIT" }
-authors = [{ name = "Hermes" }]
+authors = [{ name = "Axel Gustav Lindström", email = "292675736+Axelgustavlindstrom@users.noreply.github.com" }]
 dependencies = []
+
+[project.urls]
+Repository = "https://github.com/Axelgustavlindstrom/commitlint-local"
 
 [tool.setuptools.packages.find]
 where = ["."]
