@@ -1,19 +1,44 @@
+# Python bytecode and caches
 __pycache__/
 *.py[cod]
 .pytest_cache/
+.ruff_cache/
 .mypy_cache/
+
+# Build artifacts
 dist/
 build/
 *.egg-info/
 *.whl
+
+# Virtual environments
 .venv/
+
+# Environment files
 .env
 .env.*
+!.env.example
+
+# Data and logs
 *.db
+*.log
+tmp/
+out/
+
+# Coverage
+coverage/
+htmlcov/
+
+# Dependency lockfiles
+pdm.lock
+poetry.lock
+.python-version
+
+# OS and IDE
 .DS_Store
 node_modules/
 .next/
-coverage/
-htmlcov/
+
+# Agent/LLM working files
 AGENTS.md
 CLAUDE.md
