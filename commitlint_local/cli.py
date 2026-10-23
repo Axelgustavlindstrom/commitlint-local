@@ -178,6 +178,8 @@ def build_parser() -> argparse.ArgumentParser:
     validate.add_argument("--repo-root", type=Path)
     validate.add_argument("--config")
     validate.add_argument("--allow-empty", action="store_true")
+    validate.add_argument("-q", "--quiet", action="store_true", help="quiet mode: no output on success")
+    validate.add_argument("-v", "--verbose", action="store_true", help="verbose mode: print resolved config path")
 
     install = subparsers.add_parser("install-hook")
     install.add_argument("--repo-root", type=Path)
@@ -205,6 +207,20 @@ def main(argv: Optional[list[str]] = None) -> int:
         path = repo_root / ".git/hooks/commit-msg"
         print(f"installed pre-commit hook: {path}")
         return 0
+
+    if arguments.command == "validate":
+        repo_root = resolve_repo_root(arguments.repo_root)
+        if arguments.verbose:
+            config, config_path = load_config(repo_root, arguments.config)
+            if config_path:
+                print(f"config: {config_path}")
+            else:
+                print("config: none found (using defaults)")
+        if arguments.quiet:
+            message = arguments.message or os.environ.get("COMMITLINT_MESSAGE", "")
+            if message:
+                run_validation(message, repo_root, arguments.config, allow_empty=arguments.allow_empty)
+            return 0
 
     message = arguments.message or os.environ.get("COMMITLINT_MESSAGE", "")
     if not message:

@@ -11,7 +11,8 @@ Repository: https://github.com/Axelgustavlindstrom/commitlint-local
 - Enforce Conventional Commits: `<type>[optional scope]: <description>`
 - Configured via `.commitlintrc` in the repo root
 - Pre-commit hook installer: `.git/hooks/commit-msg`
-- Quiet mode and verbose mode for CI or interactive use
+- Quiet mode (`commitlint validate -q "..."`) for CI that wants silence on success
+- Verbose mode (`commitlint validate -v "..."`) to print the resolved config path
 - Exits non-zero for invalid commits without blocking valid ones
 - Repo-local: configuration is discovered from the repo being committed into
 
